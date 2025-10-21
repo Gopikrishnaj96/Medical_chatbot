@@ -4,7 +4,7 @@
 1. Clone the repository
 
 git clone https://github.com/Gopikrishnaj96/Medical_chatbot.git
-cd Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS
+cd Medical_chatbot
 
 
 2. Create and activate a Conda environment
