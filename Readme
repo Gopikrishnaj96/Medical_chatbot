@@ -1,0 +1,72 @@
+🏥 Medical Chatbot with LLMs, LangChain, Pinecone, Flask & AWS
+🚀 Setup Guide
+
+1. Clone the repository
+
+git clone https://github.com/entbappy/Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS.git
+cd Build-a-Complete-Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS
+
+
+2. Create and activate a Conda environment
+
+conda create -n medibot python=3.10 -y
+conda activate medibot
+
+
+3. Install dependencies
+
+pip install -r requirements.txt
+
+
+4. Add credentials
+Create a .env file in the root directory and include:
+
+PINECONE_API_KEY="your_pinecone_key"
+OPENAI_API_KEY="your_openai_key"
+
+
+5. Store embeddings and launch app
+
+python store_index.py
+python app.py
+
+
+Then open your browser at localhost.
+
+🧠 Tech Stack
+
+Python · LangChain · Flask · GPT · Pinecone · AWS
+
+☁️ AWS CI/CD Deployment (GitHub Actions)
+
+Login to AWS Console
+
+Create an IAM user with EC2 and ECR access
+
+Policies: AmazonEC2FullAccess, AmazonEC2ContainerRegistryFullAccess
+
+Create an ECR repository and note its URI
+
+Launch an EC2 instance (Ubuntu) and install Docker:
+
+sudo apt update -y && sudo apt upgrade -y
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+newgrp docker
+
+
+Configure EC2 as a self-hosted GitHub runner
+(Settings → Actions → Runners → New self-hosted runner)
+
+Add GitHub Secrets:
+
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_DEFAULT_REGION
+ECR_REPO
+PINECONE_API_KEY
+OPENAI_API_KEY
+
+
+This streamlined setup builds, pushes, and deploys your Dockerized medical chatbot to AWS automatically via GitHub Actions.
